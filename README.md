@@ -1,6 +1,6 @@
 # Refonte site LML (Laboratoire de Mathématiques de Lens)
 
-[version][version-badge]
+[[version][version-badge]]
 
 ## Synopsis
 
