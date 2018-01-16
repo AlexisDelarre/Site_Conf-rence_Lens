@@ -1,6 +1,6 @@
 # Refonte site LML (Laboratoire de Mathématiques de Lens)
 
-[version-badge]
+![version badge](https://img.shields.io/badge/version-0.1.0-blue.svg)
 
 ## Synopsis
 
@@ -39,6 +39,3 @@ Le site est désormais accessible à l'adresse [localhost:8000](http://localhost
 <strong>Responsables du projet</strong>
 * Martin SARALEGUI &mdash; <a href="mailto:martin.saralegui@sfr.fr">martin.saralegui@sfr.fr</a>
 * Fred HEMERY &mdash; <a href="mailto:fred.hemery@univ-artois.fr">fred.hemery@univ-artois.fr</a>
-
-
-[version-badge]: https://img.shields.io/badge/version-0.1.0-blue.svg
