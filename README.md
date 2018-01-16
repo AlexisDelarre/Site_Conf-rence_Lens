@@ -10,7 +10,7 @@ En particulier la partie concernant l'ajout de nouvelles conférences.
 
 ## Spécifications
 
-Le site est développé à partir du framework PHP **Symfony**.
+Le site est développé à partir du framework PHP **Symfony**. <br>
 Il utilise une base de données **MySQL**.
 
 ## Pré-requis
