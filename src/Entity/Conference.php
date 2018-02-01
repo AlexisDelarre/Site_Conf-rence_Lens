@@ -8,11 +8,13 @@
  */
 namespace App\Entity;
 
+use App\Entity\User;
 use Doctrine\ORM\Mapping as ORM;
+
 
 /**
  * @ORM\Table(name="conference")
- * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\ConferenceRepository")
  */
 class Conference
 {
@@ -25,7 +27,7 @@ class Conference
 
     /**
      * @var User
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="articles")
+     * @ORM\ManyToOne(targetEntity="User")
      */
     private $user;
     /**

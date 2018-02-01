@@ -1,0 +1,37 @@
+{% extends "base.html.twig" %}
+{% block body %}
+<div class="flex-center position-ref full-height">
+    <div class="content">
+        <div id="banniere">
+            <div class="title m-b-md">
+                <h1>Laboratoire de Mathématiques de Lens</h1>
+                <a href="http://www.univ-artois.fr/">
+                    Université d'artois
+                </a>
+            </div>
+            <img src="/images/batiment.jpg">
+        </div>
+        {% include 'navbar.html.twig' %}
+<div class="div-venir">
+    <h3><a id="venir">Comment venir nous voir?</a></h3>
+    <p>Le Laboratoire de Mathématiques de Lens de l'université d'Artois se trouve au sein de la faculté des sciences Jean Perrin, à Lens.</p>
+
+    <h3>En voiture</h3>
+    L'accès au parking du LML est restreint par une barrière, aussi, sauf arrangement préalable, le mieux est de se garer dans la rue Jean Souvraz ou la rue de la Bassée, qui sont de part et d'autre du campus.
+
+    <h3>A pied, de la gare SNCF</h3>
+    <p>Vous pouvez consulter les <a href="http://www.voyages-sncf.com" class="spip_out">horaires des trains</a></p>
+
+    <p>Lens est à 1h15 de TGV de Paris&nbsp;:
+        Prendre le TGV à partir de la Gare du Nord. Certains TGV sont directs pour Lens, d'autres nécessitent un changement de train à Arras.</p>
+
+    <p>A partir de Lille&nbsp;:
+        Prendre le train TER à la gare de Lille Flandres.</p>
+    <p>Pour venir à partir de la gare SNCF de Lens, compter 15 mn à pied, et suivre cet itinéraire:</p>
+    <iframe scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps/ms?msa=0&amp;msid=202732317600177958434.0004e33b215d0958b82fd&amp;ie=UTF8&amp;t=m&amp;ll=50.430639,2.826447&amp;spn=0.009568,0.018239&amp;z=15&amp;output=embed" width="425" height="350" frameborder="0"></iframe><br><small>View <a href="https://maps.google.com/maps/ms?msa=0&amp;msid=202732317600177958434.0004e33b215d0958b82fd&amp;ie=UTF8&amp;t=m&amp;ll=50.430639,2.826447&amp;spn=0.009568,0.018239&amp;z=15&amp;source=embed" style="color:#0000FF;text-align:left">Accès au LML</a> in a larger map</small>
+    <h3>Une fois sur le campus de la faculté</h3>
+    <p>Faire le tour du bâtiment, jusqu'à se trouver devant la belle façade qui jouxte le jardin à la française, comme ceci:</p>
+    <iframe scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps/ms?msa=0&amp;msid=202732317600177958434.0004e344c89a043471f6c&amp;ie=UTF8&amp;t=h&amp;ll=50.434124,2.8234&amp;spn=0.002392,0.00456&amp;z=17&amp;output=embed" width="425" height="350" frameborder="0"></iframe><br><small>View <a href="https://maps.google.com/maps/ms?msa=0&amp;msid=202732317600177958434.0004e344c89a043471f6c&amp;ie=UTF8&amp;t=h&amp;ll=50.434124,2.8234&amp;spn=0.002392,0.00456&amp;z=17&amp;source=embed" style="color:#0000FF;text-align:left">Faculté des Sciences</a> in a larger map</small>
+    <p>Entrer dans le hall, et monter au premier étage. Le LML est installé sur les deux couloirs qui convergent vers le hall. Le bureau de la secrétaire, Angélique Gérard, est le P115.</p>
+</div>
+{% endblock %}

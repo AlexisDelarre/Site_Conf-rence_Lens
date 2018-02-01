@@ -2,15 +2,16 @@
 
 namespace App\Entity;
 
+use App\Entity\Conference;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Table(name="users")
+ * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User implements UserInterface, \Serializable {
+class User {
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -30,7 +31,7 @@ class User implements UserInterface, \Serializable {
 
     /**
      * @var Conference[]
-     * @ORM\OneToMany(targetEntity="App\Entity\Conference",mappedBy="user")
+     * @ORM\OneToMany(targetEntity="Conference",mappedBy="user")
      */
     private $conference;
 
