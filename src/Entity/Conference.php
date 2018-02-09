@@ -178,5 +178,21 @@ class Conference
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
+    public function getLieu(): string
+    {
+        return $this->lieu;
+    }
+
+    /**
+     * @param string $lieu
+     */
+    public function setLieu(string $lieu)
+    {
+        $this->lieu = $lieu;
+    }
+
 
 }
