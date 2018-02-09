@@ -30,29 +30,32 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
 
 
-        // adresse
-        if ('/adresse' === $pathinfo) {
-            return array (  '_controller' => 'App\\Controller\\AdresseController::index',  '_route' => 'adresse',);
-        }
-
-        // contact
-        if ('/contact' === $pathinfo) {
-            return array (  '_controller' => 'App\\Controller\\ContactController::index',  '_route' => 'contact',);
-        }
-
-        // accueil
-        if ('' === $trimmedPathinfo) {
-            $ret = array (  '_controller' => 'App\\Controller\\HomepageController::index',  '_route' => 'accueil',);
-            if (substr($pathinfo, -1) !== '/') {
-                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'accueil'));
+        if (0 === strpos($pathinfo, '/conference')) {
+            // app_conference_index
+            if ('/conference' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\ConferenceController::index',  '_route' => 'app_conference_index',);
             }
 
-            return $ret;
-        }
+            // app_conference_new
+            if ('/conference/new' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\ConferenceController::newConference',  '_route' => 'app_conference_new',);
+            }
 
-        // liens
-        if ('/liens' === $pathinfo) {
-            return array (  '_controller' => 'App\\Controller\\LiensController::index',  '_route' => 'liens',);
+            // app_conference_edit
+            if (preg_match('#^/conference/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'app_conference_edit')), array (  '_controller' => 'App\\Controller\\ConferenceController::editConference',));
+            }
+
+            // app_conference_delete
+            if (preg_match('#^/conference/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'app_conference_delete')), array (  '_controller' => 'App\\Controller\\ConferenceController::deleteConference',));
+            }
+
+            // app_conference_show
+            if (preg_match('#^/conference/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'app_conference_show')), array (  '_controller' => 'App\\Controller\\ConferenceController::showConference',));
+            }
+
         }
 
         // _twig_error_test

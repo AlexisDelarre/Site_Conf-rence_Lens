@@ -1,4 +1,5 @@
 <?php
+namespace App\Form;
 
 use App\Entity\Conference;
 use Symfony\Component\Form\AbstractType;

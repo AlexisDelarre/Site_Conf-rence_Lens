@@ -3,7 +3,7 @@
 namespace App\Event;
 
 use App\Entity\Conference;
-use Composer\EventDispatcher\Event;
+use Symfony\Component\EventDispatcher\Event;
 
 
 /**
