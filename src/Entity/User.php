@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Entity\Conference;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Config\Definition\BooleanNode;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -20,7 +21,7 @@ class User {
     private $id;
     /**
      * @var string
-     * @ORM\Column(type="string", length=45)
+     * @ORM\Column(type="string")
      */
     private $name;
     /**
@@ -28,6 +29,19 @@ class User {
      * @ORM\Column(type="string",unique=true)
      */
     private $email;
+
+    /**
+     * @var string
+     * @ORM\Column(type="string")
+     */
+    private $etablissement;
+
+    /**
+     * @var Boolean
+     * @ORM\Column(type="boolean");
+     */
+    private $speaker;
+
 
     /**
      * @var Conference[]
@@ -82,6 +96,12 @@ class User {
     private $updated_at;
 
     /**
+     * @var boolean
+     * @ORM\Column(type="boolean")
+     */
+    private $enable;
+
+    /**
      * User constructor.
      */
     public function __construct() {
@@ -95,6 +115,41 @@ class User {
         $this->updated_at = new \DateTime('now');
         $this->conference = new ArrayCollection();
     }
+
+    /**
+     * @return string
+     */
+    public function getEtablissement(): string
+    {
+        return $this->etablissement;
+    }
+
+    /**
+     * @param string $etablissement
+     */
+    public function setEtablissement(string $etablissement)
+    {
+        $this->etablissement = $etablissement;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isSpeaker(): bool
+    {
+        return $this->speaker;
+    }
+
+    /**
+     * @param bool $speaker
+     */
+    public function setSpeaker(bool $speaker)
+    {
+        $this->speaker = $speaker;
+    }
+
+
+
 
     /**
      * @return string
@@ -205,6 +260,24 @@ class User {
     {
         $this->conference = $conference;
     }
+
+    /**
+     * @return bool
+     */
+    public function isEnable(): bool
+    {
+        return $this->enable;
+    }
+
+    /**
+     * @param bool $enable
+     */
+    public function setEnable(bool $enable)
+    {
+        $this->enable = $enable;
+    }
+
+
 
 
 

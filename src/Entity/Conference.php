@@ -10,6 +10,7 @@ namespace App\Entity;
 
 use App\Entity\User;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\Time;
 
 
 /**
@@ -43,21 +44,31 @@ class Conference
      * @ORM\Column(type="datetime")
      */
     private $date;
+
     /**
-     * @var \DateTime
-     * @ORM\Column(type="datetime")
+     * @var Time
+     * @ORM\Column(type="time")
      */
-    private $created_at;
+    private $heuredebut;
+
     /**
-     * @var \DateTime
-     * @ORM\Column(type="datetime")
+     * @var Time
+     * @ORM\Column(type="time")
      */
-    private $updated_at;
+    private $heurefin;
+
+    /**
+     * @var string
+     * @ORM\Column(type="string")
+     */
+    private $lieu;
+
+
+
 
     public function __construct()
     {
-        $this->created_at = new \DateTime('now');
-        $this->updated_at = new \DateTime('now');
+
         $this->content = "";
         $this->title="";
 
@@ -96,7 +107,23 @@ class Conference
     }
 
     /**
-     * @return mixed
+     * @return \App\Entity\User
+     */
+    public function getUser(): \App\Entity\User
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param \App\Entity\User $user
+     */
+    public function setUser(\App\Entity\User $user)
+    {
+        $this->user = $user;
+    }
+
+    /**
+     * @return \DateTime
      */
     public function getDate()
     {
@@ -104,43 +131,52 @@ class Conference
     }
 
     /**
-     * @param mixed $date
+     * @param \DateTime $date
      */
-    public function setDate($date)
+    public function setDate(\DateTime $date)
     {
         $this->date = $date;
     }
 
     /**
-     * @return \DateTime
+     * @return Time
      */
-    public function getCreatedAt()
+    public function getHeuredebut()
     {
-        return $this->created_at;
+        return $this->heuredebut;
     }
 
     /**
-     * @param \DateTime $created_at
+     * @param Time $heuredebut
      */
-    public function setCreatedAt($created_at)
+    public function setHeuredebut(Time $heuredebut)
     {
-        $this->created_at = $created_at;
+        $this->heuredebut = $heuredebut;
     }
 
     /**
-     * @return \DateTime
+     * @return Time
      */
-    public function getUpdatedAt()
+    public function getHeurefin()
     {
-        return $this->updated_at;
+        return $this->heurefin;
     }
 
     /**
-     * @param \DateTime $updated_at
+     * @param Time $heurefin
      */
-    public function setUpdatedAt($updated_at)
+    public function setHeurefin(Time $heurefin)
     {
-        $this->updated_at = $updated_at;
+        $this->heurefin = $heurefin;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
 
 }
