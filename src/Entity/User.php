@@ -7,12 +7,14 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Config\Definition\BooleanNode;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\User\UserInterface;
+
 
 /**
  * @ORM\Table(name="users")
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User {
+class User implements UserInterface, \Serializable {
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -119,7 +121,7 @@ class User {
     /**
      * @return string
      */
-    public function getEtablissement(): string
+    public function getEtablissement()
     {
         return $this->etablissement;
     }
@@ -127,7 +129,7 @@ class User {
     /**
      * @param string $etablissement
      */
-    public function setEtablissement(string $etablissement)
+    public function setEtablissement($etablissement)
     {
         $this->etablissement = $etablissement;
     }
@@ -135,7 +137,7 @@ class User {
     /**
      * @return bool
      */
-    public function isSpeaker(): bool
+    public function isSpeaker()
     {
         return $this->speaker;
     }
@@ -143,7 +145,7 @@ class User {
     /**
      * @param bool $speaker
      */
-    public function setSpeaker(bool $speaker)
+    public function setSpeaker($speaker)
     {
         $this->speaker = $speaker;
     }
@@ -264,7 +266,7 @@ class User {
     /**
      * @return bool
      */
-    public function isEnable(): bool
+    public function isEnable()
     {
         return $this->enable;
     }
@@ -272,7 +274,7 @@ class User {
     /**
      * @param bool $enable
      */
-    public function setEnable(bool $enable)
+    public function setEnable( $enable)
     {
         $this->enable = $enable;
     }

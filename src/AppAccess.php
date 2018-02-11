@@ -15,4 +15,8 @@ class AppAccess
     const ConferenceAdd    = "app_conference_add";
     const ConferenceEdit   = "app_conference_edit";
     const ConferenceDelete = "app_conference_delete";
+
+    const HomepageShow ="app_homepage_show";
+    const HomepageAdd = "app_homepage_add";
+    const HomepageEdit = "app_homepage_edit";
 }

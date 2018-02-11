@@ -1,9 +1,5 @@
 {% extends "base.html.twig" %}
-
 {% block body %}
-    <div class="container_ajoutEntrainement">
-        {{ form(form) }}
-        <a href="{{ path('app_training_index') }}">Retour en arrière</a>
-    </div>
-
+    {{ form(form) }}
+    <a href="{{ path('app_conference_index') }}">Retour en arrière</a>
 {% endblock body %}

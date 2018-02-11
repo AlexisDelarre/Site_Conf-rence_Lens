@@ -58,6 +58,41 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
+        // login
+        if ('/login' === $pathinfo) {
+            return array (  '_controller' => 'App\\Controller\\SecurityController::login',  '_route' => 'login',);
+        }
+
+        // logout
+        if ('/logout' === $pathinfo) {
+            return array (  '_controller' => 'App\\Controller\\SecurityController::logout',  '_route' => 'logout',);
+        }
+
+        if (0 === strpos($pathinfo, '/register')) {
+            // register
+            if ('/register' === $pathinfo) {
+                if ('GET' !== $canonicalMethod) {
+                    $allow[] = 'GET';
+                    goto not_register;
+                }
+
+                return array (  '_controller' => 'App\\Controller\\SecurityController::register',  '_route' => 'register',);
+            }
+            not_register:
+
+            // check_register
+            if ('/register' === $pathinfo) {
+                if ('POST' !== $canonicalMethod) {
+                    $allow[] = 'POST';
+                    goto not_check_register;
+                }
+
+                return array (  '_controller' => 'App\\Controller\\SecurityController::check_register',  '_route' => 'check_register',);
+            }
+            not_check_register:
+
+        }
+
         // _twig_error_test
         if (0 === strpos($pathinfo, '/_error') && preg_match('#^/_error/(?P<code>\\d+)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => '_twig_error_test')), array (  '_controller' => 'twig.controller.preview_error:previewErrorPageAction',  '_format' => 'html',));

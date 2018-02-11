@@ -30,3 +30,7 @@ services:
         public: true
     App\Event\ConferenceEvent:
         public: true
+    App\Event\HomepageEvent:
+        public: true
+    App\Entity\Homepage:
+        public: true

@@ -15,7 +15,7 @@ use Symfony\Component\Validator\Constraints\Time;
  * @ORM\Table(name="homepage")
  * @ORM\Entity(repositoryClass="App\Repository\HomepageRepository")
  */
-class Homepageomepage
+class Homepage
 {
     /**
      * @ORM\Id
