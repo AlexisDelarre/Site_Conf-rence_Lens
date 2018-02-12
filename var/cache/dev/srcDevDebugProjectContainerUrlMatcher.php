@@ -58,6 +58,26 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
+        // app_homepage_index
+        if ('' === $trimmedPathinfo) {
+            $ret = array (  '_controller' => 'App\\Controller\\HomepageController::index',  '_route' => 'app_homepage_index',);
+            if (substr($pathinfo, -1) !== '/') {
+                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'app_homepage_index'));
+            }
+
+            return $ret;
+        }
+
+        // app_homepage_new
+        if ('/new' === $pathinfo) {
+            return array (  '_controller' => 'App\\Controller\\HomepageController::newHomepage',  '_route' => 'app_homepage_new',);
+        }
+
+        // app_homepage_edit
+        if (preg_match('#^/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'app_homepage_edit')), array (  '_controller' => 'App\\Controller\\HomepageController::editHomepage',));
+        }
+
         // login
         if ('/login' === $pathinfo) {
             return array (  '_controller' => 'App\\Controller\\SecurityController::login',  '_route' => 'login',);

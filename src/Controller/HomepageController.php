@@ -17,6 +17,7 @@ use App\Form\HomepageType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 class HomepageController extends Controller
 {

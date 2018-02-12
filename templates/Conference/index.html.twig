@@ -3,8 +3,7 @@
 
 {% block body %}
 
-    <a href="{{ path('app_conference_new') }}">Nouveau entrainement</a></div>
-    <a href="{{ path('welcome') }}">retour</a></div>
+    <a href="{{ path('app_conference_new') }}">Nouvelle conference</a></div>
 
     {% for conference in conference %}
         {{ conference.title }}
