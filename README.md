@@ -17,6 +17,7 @@ Il utilise une base de données **MySQL**.
 
 * Git
 * Composer
+* PHP ^7.1.3
 
 ## Installation
 
