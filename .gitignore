@@ -4,7 +4,7 @@
 /vendor
 .idea
 .env
-web-server-pid
+.web-server-pid
 composer.lock
 composer.phar
 webpack.config.js
