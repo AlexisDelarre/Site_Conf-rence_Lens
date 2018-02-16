@@ -4,3 +4,6 @@
 /vendor
 .idea
 .env
+web-server-pid
+composer.lock
+composer.phar
