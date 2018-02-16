@@ -7,3 +7,5 @@
 web-server-pid
 composer.lock
 composer.phar
+webpack.config.js
+package.json
