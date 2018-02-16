@@ -1,6 +1,6 @@
 # Refonte site LML (Laboratoire de Mathématiques de Lens)
 
-![version badge](https://img.shields.io/badge/version-0.1.0-blue.svg)
+![version badge](https://img.shields.io/badge/version-0.3.0-blue.svg)
 
 ## Synopsis
 
