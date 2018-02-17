@@ -1,10 +1,11 @@
 <?php
 namespace App\Form;
 
-use App\Entity\Conference;
+
 use App\Entity\Participant;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -22,7 +23,7 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
  * Time: 14:36
  */
 
-class ConferenceType extends AbstractType
+class ParticipantType extends AbstractType
 {
     protected $token;
 
@@ -34,30 +35,26 @@ class ConferenceType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $option)
     {
         $builder
-            ->add('title',TextType::class)
-            ->add('content',TextareaType::class)
-            ->add('date',DateType::class)
-            ->add('heuredebut',DateType::class)
-            ->add('heurefin',DateType::class)
-            ->add('lieu',TextType::class)
-            ->add("participant", EntityType::class, ['class'=> Participant::class,
-                'choice_label'=> 'name', 'multiple' => false, 'expanded' => false,])
+            ->add('name',TextType::class)
+            ->add("email",TextType::class)
+            ->add("speaker",ChoiceType::class, array('choices'  => array( "No" => "0", "Yes" => "1",)))
+            ->add("institution",TextType::class)
             ->addEventListener(FormEvents::PRE_SET_DATA, [$this, 'onPreSetData'])->getForm();
         ;
     }
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Conference::class,
+            'data_class' => Participant::class,
         ]);
     }
 
     public function onPreSetData(FormEvent $formEvent)
     {
         $form = $formEvent->getForm();
-        $conference = $formEvent->getData();
+        $participant = $formEvent->getData();
 
-        if($conference->getId() === null){
+        if($participant->getId() === null){
             $form->add("save", SubmitType::class, ["label" => "Create"]);
         } else{
             $form->add("save", SubmitType::class, ["label" => "Edit"]);

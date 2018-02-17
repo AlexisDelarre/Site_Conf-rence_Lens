@@ -3,17 +3,18 @@
 
 
 {% block body %}
-
-    <h1>{{ homepage.title }}</h1>
-    <br>
-    <p>{{ homepage.date }}</p>
-    <br>
-    <p>{{ homepage.lieu }}</p>
-    <br>
-    <p>{{ homepage.subtitle }}</p>
-    <br>
-    <p>{{ homepage.subtext }}</p>
-    <br>
-    <p>{{ homepage.footer }}</p>
+    {% for homepage in homepage %}
+        <h1>{{ homepage.title }}</h1>
+        <br>
+        <p>{{ homepage.date }}</p>
+        <br>
+        <p>{{ homepage.lieu }}</p>
+        <br>
+        <p>{{ homepage.subtitle }}</p>
+        <br>
+        <p>{{ homepage.subtext }}</p>
+        <br>
+        <p>{{ homepage.footer }}</p>
+    {% endfor %}
 
 {% endblock body %}

@@ -19,6 +19,15 @@ class ConferenceEvent extends Event
     protected $conference;
 
     /**
+     * ConferenceEvent constructor.
+     * @param $conference
+     */
+    public function __construct(Conference $conference)
+    {
+        $this->conference = $conference;
+    }
+
+    /**
      * @return Conference
      */
     public function getConference()
@@ -33,6 +42,8 @@ class ConferenceEvent extends Event
     {
         $this->conference = $conference;
     }
+
+
 
 
 

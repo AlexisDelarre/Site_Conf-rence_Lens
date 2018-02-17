@@ -62,7 +62,7 @@ class SecurityController extends AbstractController {
             $em->persist($user);
             $em->flush();
 
-            return $this->redirectToRoute('welcome');
+            return $this->redirectToRoute('app_homepage_index');
         }
         return $this->render('security/register.html.twig', array(
             'form' => $form->createView(),

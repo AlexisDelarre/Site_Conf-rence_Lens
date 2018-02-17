@@ -43,10 +43,10 @@ class HomepageController extends Controller
      */
     public function newHomepage(Request $request, AuthorizationCheckerInterface $authorizationChecker)
     {
-        if(false === $authorizationChecker->isGranted(AppAccess::HomepageAdd)){
+        /*if(false === $authorizationChecker->isGranted(AppAccess::HomepageAdd)){
             $this->addFlash('error', 'access deny !');
             return $this->redirectToRoute("app_homepage_index");
-        }
+        }*/
         $homepage = $this->get(Homepage::class);
         $form = $this->createForm(HomepageType::class, $homepage);
         $form->handleRequest($request);
@@ -67,10 +67,10 @@ class HomepageController extends Controller
      */
     public function editHomepage(Request $request, Homepage $homepage, AuthorizationCheckerInterface $authorizationChecker)
     {
-        if(false === $authorizationChecker->isGranted(AppAccess::HomepageEdit, $homepage)){
+        /*if(false === $authorizationChecker->isGranted(AppAccess::HomepageEdit, $homepage)){
             $this->addFlash('error', 'access deny !');
             return $this->redirectToRoute("app_homepage_index");
-        }
+        }*/
         $form = $this->createForm(HomepageType::class, $homepage);
 
         $form->handleRequest($request);

@@ -17,6 +17,15 @@ class HomepageEvent extends Event
     protected  $homepage;
 
     /**
+     * HomepageEvent constructor.
+     * @param $homepage
+     */
+    public function __construct(Homepage $homepage)
+    {
+        $this->homepage = $homepage;
+    }
+
+    /**
      * @return mixed
      */
     public function getHomepage()
@@ -31,6 +40,8 @@ class HomepageEvent extends Event
     {
         $this->homepage = $homepage;
     }
+
+
 
 
 

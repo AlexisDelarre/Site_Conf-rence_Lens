@@ -8,7 +8,7 @@
  */
 namespace App\Entity;
 
-use App\Entity\User;
+use App\Entity\Participant;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints\Time;
 
@@ -26,11 +26,6 @@ class Conference
      */
     private $id;
 
-    /**
-     * @var User
-     * @ORM\ManyToOne(targetEntity="User")
-     */
-    private $user;
     /**
      * @ORM\Column()
      */
@@ -63,7 +58,11 @@ class Conference
      */
     private $lieu;
 
-
+    /**
+     * @var Participant
+     * @ORM\ManyToOne(targetEntity="App\Entity\Participant", inversedBy="conference")
+     */
+    private $participant;
 
 
     public function __construct()
@@ -106,21 +105,6 @@ class Conference
         $this->content = $content;
     }
 
-    /**
-     * @return \App\Entity\User
-     */
-    public function getUser(): \App\Entity\User
-    {
-        return $this->user;
-    }
-
-    /**
-     * @param \App\Entity\User $user
-     */
-    public function setUser(\App\Entity\User $user)
-    {
-        $this->user = $user;
-    }
 
     /**
      * @return \DateTime
@@ -133,7 +117,7 @@ class Conference
     /**
      * @param \DateTime $date
      */
-    public function setDate(\DateTime $date)
+    public function setDate( $date)
     {
         $this->date = $date;
     }
@@ -149,7 +133,7 @@ class Conference
     /**
      * @param Time $heuredebut
      */
-    public function setHeuredebut(Time $heuredebut)
+    public function setHeuredebut( $heuredebut)
     {
         $this->heuredebut = $heuredebut;
     }
@@ -165,7 +149,7 @@ class Conference
     /**
      * @param Time $heurefin
      */
-    public function setHeurefin(Time $heurefin)
+    public function setHeurefin( $heurefin)
     {
         $this->heurefin = $heurefin;
     }
@@ -181,7 +165,7 @@ class Conference
     /**
      * @return string
      */
-    public function getLieu(): string
+    public function getLieu()
     {
         return $this->lieu;
     }
@@ -189,10 +173,28 @@ class Conference
     /**
      * @param string $lieu
      */
-    public function setLieu(string $lieu)
+    public function setLieu( $lieu)
     {
         $this->lieu = $lieu;
     }
+
+    /**
+     * @return \App\Entity\Participant
+     */
+    public function getParticipant()
+    {
+        return $this->participant;
+    }
+
+    /**
+     * @param \App\Entity\Participant $participant
+     */
+    public function setParticipant($participant)
+    {
+        $this->participant = $participant;
+    }
+
+
 
 
 }

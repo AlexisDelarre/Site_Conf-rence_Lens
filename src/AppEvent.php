@@ -11,6 +11,10 @@ class AppEvent
     const HOMEPAGE_ADD ="homepage_add";
     const HOMEPAGE_EDIT ="homepage_edit";
 
+    const PARTICIPANT_ADD    = "participant_add";
+    const PARTICIPANT_EDIT   = "participant_edit";
+    const PARTICIPANT_DELETE = "participant_delete";
+
 
 
 

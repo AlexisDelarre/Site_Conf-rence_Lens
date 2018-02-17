@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    {% for participant in participant %}
+
+        {% if participant.speaker == 1 %}
+
+                {{ participant.name }}
+            <p>-----------------------------------</p>
+
+        {% else %}
+                {{ participant.name }}
+
+        {% endif %}
+    {% endfor %}
+
+
+{% endblock %}

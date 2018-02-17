@@ -32,24 +32,6 @@ class User implements UserInterface, \Serializable {
      */
     private $email;
 
-    /**
-     * @var string
-     * @ORM\Column(type="string")
-     */
-    private $etablissement;
-
-    /**
-     * @var Boolean
-     * @ORM\Column(type="boolean");
-     */
-    private $speaker;
-
-
-    /**
-     * @var Conference[]
-     * @ORM\OneToMany(targetEntity="Conference",mappedBy="user")
-     */
-    private $conference;
 
     /**
      * @return mixed
@@ -97,59 +79,21 @@ class User implements UserInterface, \Serializable {
      */
     private $updated_at;
 
-    /**
-     * @var boolean
-     * @ORM\Column(type="boolean")
-     */
-    private $enable;
 
     /**
      * User constructor.
      */
     public function __construct() {
-        $this->roles = array("ROLE_USER");
-        $this->admin = 0;
+        $this->roles = array("ROLE_ADMIN");
+        $this->admin = 1;
         $this->email = "";
         $this->remember_token = "";
         $this->password = "";
         $this->name = "";
         $this->created_at = new \DateTime('now');
         $this->updated_at = new \DateTime('now');
-        $this->conference = new ArrayCollection();
-    }
 
-    /**
-     * @return string
-     */
-    public function getEtablissement()
-    {
-        return $this->etablissement;
     }
-
-    /**
-     * @param string $etablissement
-     */
-    public function setEtablissement($etablissement)
-    {
-        $this->etablissement = $etablissement;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isSpeaker()
-    {
-        return $this->speaker;
-    }
-
-    /**
-     * @param bool $speaker
-     */
-    public function setSpeaker($speaker)
-    {
-        $this->speaker = $speaker;
-    }
-
 
 
 
@@ -246,41 +190,6 @@ class User implements UserInterface, \Serializable {
     public function setUpdatedAt($updated_at) {
         $this->updated_at = $updated_at;
     }
-
-    /**
-     * @return Conference[]
-     */
-    public function getConference()
-    {
-        return $this->conference;
-    }
-
-    /**
-     * @param Conference[] $conference
-     */
-    public function setConference($conference)
-    {
-        $this->conference = $conference;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isEnable()
-    {
-        return $this->enable;
-    }
-
-    /**
-     * @param bool $enable
-     */
-    public function setEnable( $enable)
-    {
-        $this->enable = $enable;
-    }
-
-
-
 
 
     /**

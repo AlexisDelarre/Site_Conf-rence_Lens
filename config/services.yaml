@@ -34,3 +34,7 @@ services:
         public: true
     App\Entity\Homepage:
         public: true
+    App\Entity\Participant:
+        public: true
+    App\Event\ParticipantEvent:
+        public: true

@@ -49,10 +49,10 @@ class ConferenceController extends Controller
      */
     public function newConference(Request $request, AuthorizationCheckerInterface $authorizationChecker)
     {
-        if(false === $authorizationChecker->isGranted(AppAccess::ConferenceAdd)){
+        /*if(false === $authorizationChecker->isGranted(AppAccess::ConferenceAdd)){
             $this->addFlash('error', 'access deny !');
             return $this->redirectToRoute("app_conference_index");
-        }
+        }*/
         $conference = $this->get(Conference::class);
         $form = $this->createForm(ConferenceType::class, $conference);
         $form->handleRequest($request);
@@ -73,10 +73,10 @@ class ConferenceController extends Controller
      */
     public function editConference(Request $request, Conference $conference, AuthorizationCheckerInterface $authorizationChecker)
     {
-        if(false === $authorizationChecker->isGranted(AppAccess::ConferenceEdit, $conference)){
+       /* if(false === $authorizationChecker->isGranted(AppAccess::ConferenceEdit, $conference)){
             $this->addFlash('error', 'access deny !');
             return $this->redirectToRoute("app_conference_index");
-        }
+        }*/
         $form = $this->createForm(ConferenceType::class, $conference);
 
         $form->handleRequest($request);
@@ -100,10 +100,10 @@ class ConferenceController extends Controller
      */
     public function deleteConference(Conference $conference, AuthorizationCheckerInterface $authorizationChecker)
     {
-        if(false === $authorizationChecker->isGranted(AppAccess::ConferenceDelete, $conference)){
+        /*if(false === $authorizationChecker->isGranted(AppAccess::ConferenceDelete, $conference)){
             $this->addFlash('error', 'access deny !');
             return $this->redirectToRoute("app_conference_index");
-        }
+        }*/
         $event = $this->get(ConferenceEvent::class);
         $event->setConference($conference);
         $dispatcher = $this->get("event_dispatcher");
