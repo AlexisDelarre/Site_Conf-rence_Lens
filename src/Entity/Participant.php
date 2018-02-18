@@ -60,6 +60,12 @@ class Participant
     private $conference;
 
     /**
+     * @var string
+     * @ORM\Column(type="string")
+     */
+    private $nationality;
+
+    /**
      * Participant constructor.
      */
     public function __construct()
@@ -69,7 +75,24 @@ class Participant
         $this->speaker = 0;
         $this->institution = "";
         $this->enable=0;
+        $this->nationality="";
 
+    }
+
+    /**
+     * @return string
+     */
+    public function getNationality()
+    {
+        return $this->nationality;
+    }
+
+    /**
+     * @param string $nationality
+     */
+    public function setNationality( $nationality)
+    {
+        $this->nationality = $nationality;
     }
 
 

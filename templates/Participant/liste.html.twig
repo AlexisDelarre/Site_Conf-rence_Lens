@@ -2,18 +2,91 @@
 
 
 {% block body %}
-    {% for participant in participant %}
+    <div class="gb-breadcrumb gb-bg white-color">
+        <div class="container">
+            <div class="breadcrumb-info text-center">
+                <div class="page-title">
+                    <h1>
+                        <span class="before-top"></span>
+                        <span>Speakers & Participants</span>
+                        <span class="before-bottom"></span>
+                    </h1>
+                </div>
+                <ol class="breadcrumb">
+                    <li><a href="{{ path('app_homepage_index') }}">Home</a></li>
+                    <li class="active">Participants</li>
+                </ol>
+            </div>
+        </div><!-- /.container -->
+    </div><!-- /.gb-breadcrumb -->
 
-        {% if participant.speaker == 1 %}
 
-                {{ participant.name }}
-            <p>-----------------------------------</p>
+    <div class="gb-speakers gb-section">
+        <div class="container">
+            <div class="title-section">
+                <h1 class="color-red">
+                    <span class="before-top"></span>
+                    <span>Speakers</span>
+                    <span class="before-bottom"></span>
+                </h1>
+            </div>
 
-        {% else %}
-                {{ participant.name }}
+            <div class="row">
+                {% for participant in participant %}
+                    {% if participant.speaker == 1 %}
+                <div class="col-sm-6 col-md-3">
 
-        {% endif %}
-    {% endfor %}
+                    <div class="speaker">
+                        <div class="speaker-image">
+                            <img src="images/speaker/speaker.png" alt="Image" class="img-responsive">
+                        </div>
+                        <div class="speaker-title">
+                        </div>
+
+                            <h2>{{ participant.name }}</h2>
+                            <span>{{ participant.institution }}</span>
+                        </div>
+                    </div>
+                {% endif %}
+                {% endfor %}
+            </div><!-- /.row -->
+
+
+
+
+            <div class="title-section">
+                <h1 class="color-red">
+                    <span class="before-top"></span>
+                    <span>Participants</span>
+                    <span class="before-bottom"></span>
+                </h1>
+            </div>
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Organization</th>
+                    <th>Country</th>
+                </tr>
+
+                </thead>
+                <tbody>
+                {% for participant in participant %}
+                {% if participant.speaker == 0%}
+                <tr>
+                    <td>{{ participant.name }}</td>
+                    <td>{{ participant.institution }}</td>
+                    <td>{{ participant.nationality }}</td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+
+                </tbody>
+            </table>
+
+        </div><!-- /.container -->
+    </div><!-- /.gb-section -->
 
 
 {% endblock %}

@@ -32,7 +32,7 @@ class ParticipantController extends Controller
     /**
      * @Route(
      *     path="",
-     *     name="app_conference_index"
+     *     name="app_participant_listing"
      * )
      */
     public function listing()

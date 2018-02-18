@@ -4,17 +4,45 @@
 
 {% block body %}
     {% for homepage in homepage %}
-        <h1>{{ homepage.title }}</h1>
-        <br>
-        <p>{{ homepage.date }}</p>
-        <br>
-        <p>{{ homepage.lieu }}</p>
-        <br>
-        <p>{{ homepage.subtitle }}</p>
-        <br>
-        <p>{{ homepage.subtext }}</p>
-        <br>
-        <p>{{ homepage.footer }}</p>
+        <div class="gb-banner">
+            <div class="banner-info text-center">
+                <div class="container">
+                    <h1>{{ homepage.title }}</h1>
+                    <h2><span>{{ homepage.date }}</span> {{ homepage.lieu }}</h2>
+                </div><!-- /.container -->
+            </div><!-- /.banner-info -->
+        </div><!-- /.gb-banner -->
+
+        <div class="gb-about gb-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="about-info">
+                            <h1>{{ homepage.subtitle }}</h1>
+                            <br>
+                            <p>{{ homepage.subtext }}</p>
+                            <div class="buttons">
+                                <a href="{{ path('app_participant_new') }}" class="btn button-red">Register Now</a>
+                                <a href="{{ path('app_conference_index') }}" class="btn btn-default">Titles and Abstracts</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="about-image">
+                            <img src="images/others/about.jpg" alt="Image" class=" img-responsive">
+                        </div>
+                    </div>
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div><!-- /.gb-about -->
+
+        <div class="gb-cta-1 gb-section gb-bg">
+            <div class="container">
+                <div class="cta-info white-color">
+                    <p>{{ homepage.footer }}</p>
+                </div>
+            </div><!-- /.container -->
+        </div><!-- /.gb-cta-1 -->
     {% endfor %}
 
 {% endblock body %}

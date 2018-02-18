@@ -39,6 +39,7 @@ class ParticipantType extends AbstractType
             ->add("email",TextType::class)
             ->add("speaker",ChoiceType::class, array('choices'  => array( "No" => "0", "Yes" => "1",)))
             ->add("institution",TextType::class)
+            ->add("nationality",TextType::class)
             ->addEventListener(FormEvents::PRE_SET_DATA, [$this, 'onPreSetData'])->getForm();
         ;
     }
