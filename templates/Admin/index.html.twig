@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <table>
+        <tr>
+            <td><a href={{ path('admin_participant')}}><button>Gestion des participants</button></a></td>
+            <td><a href={{ path('admin_conference')}}><button>Gestion des conferences</button></a></td>
+            <td><a href={{ path('app_homepage_edit')}}><button>Gestion Homepage</button></a></td>
+        </tr>
+    </table>
+{% endblock body %}
