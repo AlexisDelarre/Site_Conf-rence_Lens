@@ -3,6 +3,7 @@ namespace App\Form;
 
 use App\Entity\Conference;
 use App\Entity\Participant;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -42,7 +43,11 @@ class ConferenceType extends AbstractType
             ->add('heurefin',TimeType::class)
             ->add('lieu',TextType::class)
             ->add("participant", EntityType::class, ['class'=> Participant::class,
-                'choice_label'=> 'name', 'multiple' => false, 'expanded' => false,])
+                'choice_label'=> 'name', 'query_builder' => function (EntityRepository $er)
+                {
+                    return $er->createQueryBuilder('u')
+                        ->where('u.speaker = 1 ');
+                }])
 
         ;
     }

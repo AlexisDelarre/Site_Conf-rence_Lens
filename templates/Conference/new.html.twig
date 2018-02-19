@@ -26,7 +26,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            {{ form_widget(form.title, { 'attr': {
+                            {{ form_widget(form.title, { "attr": {
                                 'placeholder': 'title',
 
                                 'class':"form-control"
@@ -71,7 +71,8 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-
+                            {{ form_label(form.participant, "Speaker") }}
+                            {{ form_widget(form.participant) }}
                             {{ form_rest(form) }}
                         </div>
                     </div>
@@ -84,8 +85,8 @@
 
             </form>
 
-        </div><!-- /.container -->
-    </div><!-- /.gb-contact-form -->
+        </div>
+    </div>
 
     {{ form_end(form) }}
 
