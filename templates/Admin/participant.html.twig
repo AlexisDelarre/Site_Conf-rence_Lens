@@ -1,11 +1,13 @@
-{% extends 'base.html.twig' %}
+{#{% extends 'base.html.twig' %}#}
 {% block body %}
     <h1>Liste des participants</h1>
     <br>
     <table>
         <tr>
             <td><h4>Name</h4></td>
-            <td><h4>Date</h4></td>
+            <td><h4>Email</h4></td>
+            <td><h4>Speaker</h4></td>
+            <td><h4>Institution</h4></td>
         </tr>
         {% for participant in participants %}
             <tr>

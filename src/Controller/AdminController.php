@@ -18,7 +18,7 @@ class AdminController extends AbstractController
      */
     public function index()
     {
-        return $this->render('admin/index.html.twig');
+        return $this->render('Admin/index.html.twig');
     }
 
     /**
@@ -29,7 +29,7 @@ class AdminController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $participants = $em->getRepository(Participant::class)->findAll();
 
-        return $this->render('admin\participant.html.twig',['participants'=>$participants]);
+        return $this->render('Admin\participant.html.twig',['participants'=>$participants]);
     }
 
     /**
@@ -40,7 +40,7 @@ class AdminController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $conferences = $em->getRepository(Conference::class)->findAll();
 
-        return $this->render('admin\conference.html.twig',['conferences'=>$conferences]);
+        return $this->render('Admin\conference.html.twig',['conferences'=>$conferences]);
     }
 
     /**
@@ -49,9 +49,9 @@ class AdminController extends AbstractController
     public function homepageManagement()
     {
         $em = $this->getDoctrine()->getManager();
-        $homepage = $em->getRepository(Homepage::class)->findAll();
+        $homepages = $em->getRepository(Homepage::class)->findAll();
 
-        return $this->render('admin\homepage.html.twig',['homepage'=>$homepage]);
+        return $this->render('Admin\homepage.html.twig',['homepages'=>$homepages]);
     }
 
     /**
@@ -81,12 +81,6 @@ class AdminController extends AbstractController
     {
         $em = $this->getDoctrine()->getManager();
         $conference = $em->getRepository(\App\Entity\Conference::class)->find($id);
-
-        $participants = $em->getRepository(\App\Entity\Participant::class)->findBy(array("conference" => $conference));
-
-        foreach ($participants as $participant){
-            $em->remove($participant);
-        }
 
         $em->remove($conference);
 
