@@ -48,19 +48,39 @@ class Homepage
      */
     private $subtitle;
     /**
-     * @var string
      * @ORM\Column(type="text")
      */
     private $subtext;
     /**
-     * @var string
      * @ORM\Column(type="text")
      */
     private $footer;
 
     /**
+     * Homepage constructor.
+     * @param string $title
+     * @param string $date
+     * @param string $lieu
+     * @param string $subtitle
+     * @param $subtext
+     * @param $footer
+     */
+    public function __construct()
+    {
+        $this->title = "";
+        $this->date = "";
+        $this->lieu = "";
+        $this->subtitle = "";
+        $this->subtext = "";
+        $this->footer = "";
+    }
+
+    /**
      * @return mixed
      */
+
+
+
     public function getId()
     {
         return $this->id;
@@ -77,7 +97,7 @@ class Homepage
     /**
      * @return string
      */
-    public function getTitle(): string
+    public function getTitle()
     {
         return $this->title;
     }
@@ -85,7 +105,7 @@ class Homepage
     /**
      * @param string $title
      */
-    public function setTitle(string $title)
+    public function setTitle($title)
     {
         $this->title = $title;
     }
@@ -93,7 +113,7 @@ class Homepage
     /**
      * @return string
      */
-    public function getDate(): string
+    public function getDate()
     {
         return $this->date;
     }
@@ -101,7 +121,7 @@ class Homepage
     /**
      * @param string $date
      */
-    public function setDate(string $date)
+    public function setDate($date)
     {
         $this->date = $date;
     }
@@ -109,7 +129,7 @@ class Homepage
     /**
      * @return string
      */
-    public function getLieu(): string
+    public function getLieu()
     {
         return $this->lieu;
     }
@@ -117,7 +137,7 @@ class Homepage
     /**
      * @param string $lieu
      */
-    public function setLieu(string $lieu)
+    public function setLieu($lieu)
     {
         $this->lieu = $lieu;
     }
@@ -141,7 +161,7 @@ class Homepage
     /**
      * @return string
      */
-    public function getSubtext(): string
+    public function getSubtext()
     {
         return $this->subtext;
     }
@@ -149,7 +169,7 @@ class Homepage
     /**
      * @param string $subtext
      */
-    public function setSubtext(string $subtext)
+    public function setSubtext($subtext)
     {
         $this->subtext = $subtext;
     }
@@ -157,7 +177,7 @@ class Homepage
     /**
      * @return string
      */
-    public function getFooter(): string
+    public function getFooter()
     {
         return $this->footer;
     }
@@ -165,7 +185,7 @@ class Homepage
     /**
      * @param string $footer
      */
-    public function setFooter(string $footer)
+    public function setFooter($footer)
     {
         $this->footer = $footer;
     }

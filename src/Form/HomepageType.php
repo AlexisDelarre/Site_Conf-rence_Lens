@@ -12,6 +12,7 @@ namespace App\Form;
 use App\Entity\Homepage;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
@@ -35,9 +36,9 @@ class HomepageType extends AbstractType
             ->add("date", TextType::class)
             ->add("lieu",TextType::class)
             ->add("subtitle",TextType::class)
-            ->add("subtext",TextType::class)
-            ->add("footer",TextType::class)
-            ->addEventListener(FormEvents::PRE_SET_DATA, [$this, 'onPreSetData'])->getForm();
+            ->add("subtext",TextareaType::class)
+            ->add("footer",TextareaType::class)
+
         ;
     }
     public function configureOptions(OptionsResolver $resolver)
@@ -47,15 +48,5 @@ class HomepageType extends AbstractType
         ]);
     }
 
-    public function onPreSetData(FormEvent $formEvent)
-    {
-        $form = $formEvent->getForm();
-        $homepage = $formEvent->getData();
 
-        if($homepage->getId() === null){
-            $form->add("save", SubmitType::class, ["label" => "Create"]);
-        } else{
-            $form->add("save", SubmitType::class, ["label" => "Edit"]);
-        }
-    }
 }

@@ -1,0 +1,85 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div class="gb-breadcrumb gb-bg white-color">
+    <div class="container">
+        <div class="breadcrumb-info text-center">
+            <div class="page-title title-white">
+                <h1>
+                    <span class="before-top"></span>
+                    <span>How to come ?</span>
+                    <span class="before-bottom"></span>
+                </h1>
+            </div>
+            <ol class="breadcrumb">
+                <li><a href="{{ path('app_homepage_index') }}">Home</a></li>
+                <li class="active">How to come ?</li>
+            </ol>
+        </div>
+    </div><!-- /.container -->
+</div><!-- /.gb-breadcrumb -->
+
+<div class="gb-about gb-section">
+    <div class="container">
+        <div class="col-md-12">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="about-info">
+                        <h1>Come and see us !</h1>
+                        <br>
+                        <p>The Lens Mathematics Laboratory of the University of Artois is located in the Jean Perrin Faculty of Sciences in Lens.</p>
+                        <h3>By car</h3>
+                        <p>Access to the LML car park is restricted by a barrier, so, unless previously arranged, it is best to park in rue Jean Souvraz or Rue de la Bassée, which are on both sides of the campus.</p>
+                    </div>
+                </div>
+            </div>
+
+            <br><br>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="about-info">
+                        <h3>On foot, from the train station</h3>
+                        <p>You can check the train schedules.</p>
+                        <p>Lens is 1h15 from Paris TGV: Take the TGV from Gare du Nord. Some TGVs are direct to Lens, others require a change of train to Arras.</p>
+                        <p>From Lille: Take the TER train to Lille Flandres station.</p>
+                        <p>To come from the train station of Lens, count 15 minutes on foot, and follow this route.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps/ms?msa=0&amp;msid=202732317600177958434.0004e33b215d0958b82fd&amp;ie=UTF8&amp;t=m&amp;ll=50.430639,2.826447&amp;spn=0.009568,0.018239&amp;z=15&amp;output=embed"></iframe>
+                </div>
+            </div>
+
+            <br><br>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="about-info">
+                        <h3>Once on the campus of the faculty</h3>
+                        <p>Go around the building until you find yourself in front of the beautiful facade adjoining the French garden.</p>
+                        <p>Enter the hall, and go up to the first floor. The LML is installed on the two corridors that converge towards the hall.</p>
+                        <p>The secretary's office is P115.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps/ms?msa=0&amp;msid=202732317600177958434.0004e344c89a043471f6c&amp;ie=UTF8&amp;t=h&amp;ll=50.434124,2.8234&amp;spn=0.002392,0.00456&amp;z=17&amp;output=embed"></iframe>
+                </div>
+            </div>
+
+        </div><!-- /.col-md-12 -->
+    </div><!-- /.container -->
+</div><!-- /.gb-about -->
+
+<div class="gb-contact text-center">
+    <div id="gmap"></div>
+    <div class="contact-info">
+        <div class="event">
+            <h2>Faculté des sciences Jean-Perrin</h2>
+            <p>Rue Jean Souvraz<br>62300 - Lens, France</p>
+            <a href="{{ path('app_participant_new') }}" class="btn btn-default">Register</a>
+        </div>
+    </div>
+</div><!-- /.gb-contact -->
+{% endblock body %}

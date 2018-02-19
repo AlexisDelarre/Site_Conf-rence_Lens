@@ -11,7 +11,7 @@
                     </h1>
                 </div>
                 <ol class="breadcrumb">
-                    <li><a href="index-2.html">Home</a></li>
+                    <li><a href="{{ path('app_homepage_index') }}">Home</a></li>
                     <li class="active">Register</li>
                 </ol>
             </div>
@@ -55,7 +55,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             {{ form_widget(form.nationality, { 'attr': {
-                                'placeholder': 'Nationality',
+                                'placeholder': 'Country',
                                 'class':"form-control"
                             } }) }}
                         </div>
