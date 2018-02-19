@@ -37,10 +37,10 @@ class ParticipantType extends AbstractType
         $builder
             ->add('name',TextType::class)
             ->add("email",TextType::class)
-            ->add("speaker",ChoiceType::class, array('choices'  => array( "No" => "0", "Yes" => "1",)))
+            ->add("speaker",ChoiceType::class, array('choices'  => array( "No Speaker" => "0", "Speaker" => "1",)))
             ->add("institution",TextType::class)
             ->add("nationality",TextType::class)
-            ->addEventListener(FormEvents::PRE_SET_DATA, [$this, 'onPreSetData'])->getForm();
+
         ;
     }
     public function configureOptions(OptionsResolver $resolver)
@@ -50,7 +50,7 @@ class ParticipantType extends AbstractType
         ]);
     }
 
-    public function onPreSetData(FormEvent $formEvent)
+    /*public function onPreSetData(FormEvent $formEvent)
     {
         $form = $formEvent->getForm();
         $participant = $formEvent->getData();
@@ -60,5 +60,5 @@ class ParticipantType extends AbstractType
         } else{
             $form->add("save", SubmitType::class, ["label" => "Edit"]);
         }
-    }
+    }*/
 }

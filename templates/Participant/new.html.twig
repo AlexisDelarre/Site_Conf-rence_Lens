@@ -1,4 +1,85 @@
+{% extends 'base.html.twig' %}
 {% block body %}
-    {{ form(form) }}
-    <a href="{{ path('app_homepage_index') }}">Retour en arrière</a>
+    <div class="gb-breadcrumb gb-bg white-color">
+        <div class="container">
+            <div class="breadcrumb-info text-center">
+                <div class="page-title">
+                    <h1>
+                        <span class="before-top"></span>
+                        <span>I wish to attend</span>
+                        <span class="before-bottom"></span>
+                    </h1>
+                </div>
+                <ol class="breadcrumb">
+                    <li><a href="index-2.html">Home</a></li>
+                    <li class="active">Register</li>
+                </ol>
+            </div>
+        </div><!-- /.container -->
+    </div><!-- /.gb-breadcrumb -->
+
+        {{ form_start(form) }}
+    <div class="gb-contact-form gb-section">
+        <div class="container">
+
+            <form action="#" class="gb-form">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {{ form_widget(form.name, { 'attr': {
+                                'placeholder': 'Name',
+
+
+                                'class':"form-control"
+                            } }) }}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {{ form_widget(form.email, { 'attr': {
+                                'placeholder': 'Email',
+                                'class':"form-control"
+                            } }) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {{ form_widget(form.institution, { 'attr': {
+                                'placeholder': 'Organisation',
+                                'class':"form-control"
+                            } }) }}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {{ form_widget(form.nationality, { 'attr': {
+                                'placeholder': 'Nationality',
+                                'class':"form-control"
+                            } }) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ form_widget(form.speaker) }}
+                        {{ form_rest(form) }}
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn button-red pull-right"><span>Register</span></button>
+                    </div>
+                </div>
+
+            </form>
+
+        </div><!-- /.container -->
+    </div><!-- /.gb-contact-form -->
+
+    {{ form_end(form) }}
+
+
 {% endblock body %}

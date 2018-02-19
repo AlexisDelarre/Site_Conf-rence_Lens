@@ -10,4 +10,9 @@ class ConferenceRepository extends ServiceEntityRepository {
     {
         parent::__construct($registry, Conference::class);
     }
+
+    public function findByDate()
+    {
+        return $this->createQueryBuilder('c')->orderBy('c.date', 'ASC')->getQuery()->getResult();
+    }
 }

@@ -23,30 +23,30 @@
 
 
     {% for conference in conference %}
-       {% if   conference.title == " Break " or   conference.title ==" break " %}
+       {% if   conference.title == "Break" or   conference.title =="break" %}
         <li class="gb-break">
             <div class="row">
                 <div class="col-sm-9 col-md-10 col-sm-offset-3 col-md-offset-2">
                     <div class="schedule-info">
                         <h2>{{ conference.title }}</h2>
                         <ul class="gb-list">
-                            <li><i class="fa fa-clock-o" aria-hidden="true"></i><span>Time:</span> 16:00 - 16:30</li>
+                            <li><i class="fa fa-clock-o" aria-hidden="true"></i><span>Time:</span>  {{ conference.heuredebut|date(('H:i ')) }}-{{ conference.heurefin|date(' H:i')}}</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </li>
         {% else %}
-    <li class="expandable active">
+    <li class="expandable">
         <div class="row">
             <div class="col-sm-3 col-md-2">
                 <div class="author">
                     <div class="author-image">
-                        <a href="schedule.html"><img src="images/others/author.png" alt="Image" class="img-responsive img-circle"></a>
+                        <a href="{{ asset('app_conference_show')}}"><img src="{{ asset('images/others/author.png')}}" alt="Image" class="img-responsive img-circle"></a>
                     </div>
                     <div class="author-title">
                         <h2>{{ conference.participant.name }}</h2>
-                        <span>Université d'Artois</span>
+                        <span>{{ conference.participant.institution }}</span>
                     </div>
                 </div>
             </div>
@@ -57,7 +57,7 @@
                         <p> {{ conference.content }}</p>
                     </div>
                     <ul class="gb-list">
-                        <li><i class="fa fa-clock-o" aria-hidden="true"></i><span>Time:</span> {{ conference.date|date }}{{ conference.heuredebut|date }}{{ conference.heurefin|date}}</li>
+                        <li><i class="fa fa-clock-o" aria-hidden="true"></i><span>Time:</span> {{ conference.date|date('d M') }} {{ conference.heuredebut|date(('   H:i ')) }}-{{ conference.heurefin|date(' H:i')}}</li>
                         <li><i class="fa fa-map-marker" aria-hidden="true"></i><span>Venue:</span>{{ conference.lieu }}</li>
                     </ul>
                 </div>

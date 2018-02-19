@@ -31,14 +31,14 @@ class Conference
      */
     private $title;
     /**
-     * @ORM\Column()
+     * @ORM\Column(type="text")
      */
     private $content;
     /**
      * @var \DateTime
      * @ORM\Column(type="datetime")
      */
-    private $date;
+    public $date;
 
     /**
      * @var Time

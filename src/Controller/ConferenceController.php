@@ -36,9 +36,12 @@ class ConferenceController extends Controller
      */
     public function index()
     {
-        $conference = $this->getDoctrine()->getManager()->getRepository(Conference::class)->findAll();
+        $conf = $this->getDoctrine()->getManager()->getRepository(Conference::class)->findByDate();
 
-        return $this->render('Conference/index.html.twig', ["conference" => $conference]);
+
+
+
+        return $this->render('Conference/index.html.twig', ["conference" => $conf]);
     }
 
     /**
