@@ -15,8 +15,7 @@
                 <td>{{ homepage.lieu }}</td>
                 <td>{{ homepage.subtitle }}</td>
                 <td>{{ homepage.subtext }}</td>
-                <td><a href={{ path('app_homepage_edit', {'id': conference.id }) }}><button>editer</button></a></td>
-                <td><a href={{ path('app_conference_show', {'id': conference.id }) }}><button>voir</button></a></td>
+                <td><a href={{ path('app_homepage_edit', {'id': homepage.id }) }}><button>editer</button></a></td>
             </tr>
 
         {% endfor %}

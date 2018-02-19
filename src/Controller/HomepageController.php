@@ -82,7 +82,7 @@ class HomepageController extends Controller
             $dispatcher = $this->get("event_dispatcher");
             $dispatcher->dispatch(AppEvent::HOMEPAGE_EDIT, $event);
 
-            return $this->redirectToRoute("aap_homepage_index");
+            return $this->redirectToRoute("app_homepage_index");
         }
 
         return $this->render("Homepage/edit.html.twig", ["form" => $form->createView()]);
