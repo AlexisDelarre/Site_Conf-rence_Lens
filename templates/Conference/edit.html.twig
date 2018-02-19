@@ -71,8 +71,10 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-
+                            {{ form_label(form.participant, "Speaker") }}
+                            {{ form_widget(form.participant) }}
                             {{ form_rest(form) }}
+
                         </div>
                     </div>
                 </div>
