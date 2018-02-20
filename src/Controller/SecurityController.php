@@ -12,7 +12,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController {
     /**
-     * @Route("/login", name="login")
+     * @Route("/adminlogin", name="login")
      */
     public function login(Request $request, AuthenticationUtils $authUtils) {
         // get the login error if there is one

@@ -19,7 +19,7 @@ class HomepageSubscriber implements EventSubscriberInterface
     private $em;
 
     /**
-     * UserSubscriber constructor.
+     * HomepageSubscriber constructor.
      * @param $em
      */
     public function __construct(EntityManagerInterface $em)

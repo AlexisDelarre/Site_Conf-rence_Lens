@@ -122,7 +122,7 @@ class ParticipantController extends Controller
         $em =$this->getDoctrine()->getManager();
         $em->flush();
 
-        return $this->render('Participant/show.html.twig', ['participant' => $participant]);
+        return $this->render('Participant/liste.html.twig', ['participant' => $participant]);
     }
 
 }

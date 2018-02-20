@@ -1,0 +1,24 @@
+{#{% extends 'base.html.twig' %}#}
+{% block body %}
+    <h1>Liste des Conferences</h1>
+    <br>
+    <table>
+        <tr>
+            <td><h4>Tilte</h4></td>
+            <td><h4>Content</h4></td>
+            <td><h4>Date</h4></td>
+        </tr>
+        {% for conference in conferences %}
+            <tr>
+                <td>{{ conference.title }}</td>
+                <td>{{ conference.content }}</td>
+                <td>{{ conference.date | date}}</td>
+                <td><a href={{ path('app_conference_edit', {'id': conference.id }) }}><button>editer</button></a></td>
+                <td><a href={{ path('admin_conference_delete', {'id': conference.id }) }}><button>supprimer</button></a></td>
+                <td><a href={{ path('app_conference_show', {'id': conference.id }) }}><button>voir</button></a></td>
+            </tr>
+
+        {% endfor %}
+    </table>
+    <br>
+{% endblock body %}
