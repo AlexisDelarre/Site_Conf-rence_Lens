@@ -1,11 +1,25 @@
-
-{% extends "base.html.twig" %}
+{% include "base.html.twig" %}
 
 
 {% block body %}
-    {% if error %}
-        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+    <div class="gb-breadcrumb gb-bg white-color">
+        <div class="container">
+            <div class="breadcrumb-info text-center">
+                <div class="page-title">
+                    <h1>
+                        <span class="before-top"></span>
+                        <span>Login</span>
+                        <span class="before-bottom"></span>
+                    </h1>
+                </div>
+                <ol class="breadcrumb">
+                    <li><a href="{{ path('app_homepage_index') }}">Home</a></li>
+                    <li class="active">Login</li>
+                </ol>
+            </div>
+        </div><!-- /.container -->
+    </div><!-- /.gb-breadcrumb -->
+
     <div id="container_connexion">
         <form action="{{ path('login') }}" method="post">
 
@@ -23,6 +37,8 @@
             <input class="button" type="submit" tabindex="100" value="SE CONNECTER" id="wp-submit" name="wp-submit">
 
         </form></div>
-
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
 
 {% endblock %}

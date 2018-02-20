@@ -1,6 +1,27 @@
-{#{% extends 'base.html.twig' %}#}
+{% extends 'base.html.twig' %}
 {% block title %}Errors{% endblock %}
 {% block body %}
-    <h1>{{ statusCode }}</h1>
-    <div><p>{{ message }}</p></div>
+    <div class="gb-breadcrumb gb-bg white-color">
+        <div class="container">
+            <div class="breadcrumb-info text-center">
+                <div class="page-title">
+                    <h1>
+                        <span class="before-top"></span>
+                        <span>Error</span>
+                        <span class="before-bottom"></span>
+                    </h1>
+                </div>
+                <ol class="breadcrumb">
+                    <li><a href="{{ path('app_homepage_index') }}">Home</a></li>
+
+                </ol>
+            </div>
+        </div><!-- /.container -->
+    </div><!-- /.gb-breadcrumb -->
+    <div class="breadcrumb-info text-center">
+
+        <h1>{{ statusCode }}</h1>
+        <div><p>{{ message }}</p></div>
+
+    </div>
 {% endblock %}

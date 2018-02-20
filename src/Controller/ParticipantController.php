@@ -69,7 +69,7 @@ class ParticipantController extends Controller
     }
 
     /**
-     * @Route(path="/{id}/edit", name="app_participant_edit")
+     * @Route(path="/edit/{id}", name="app_participant_edit")
      *
      */
     public function editParticipant(Request $request, Participant $participant, AuthorizationCheckerInterface $authorizationChecker)
@@ -89,14 +89,14 @@ class ParticipantController extends Controller
             $dispatcher = $this->get("event_dispatcher");
             $dispatcher->dispatch(AppEvent::PARTICIPANT_EDIT, $event);
 
-            return $this->redirectToRoute("app_homepage_index");
+            return $this->redirectToRoute("admin_participant");
         }
 
         return $this->render("Participant/edit.html.twig", ["form" => $form->createView()]);
     }
 
     /**
-     * @Route(path="/{id}/delete", name="app_participant_delete")
+     * @Route(path="/delete/{id}", name="app_participant_delete")
      *
      */
     public function deleteParticipant(Participant $participant, AuthorizationCheckerInterface $authorizationChecker)
@@ -110,11 +110,11 @@ class ParticipantController extends Controller
         $dispatcher = $this->get("event_dispatcher");
         $dispatcher->dispatch(AppEvent::PARTICIPANT_DELETE, $event);
 
-        return $this->redirectToRoute("app_homepage_index");
+        return $this->redirectToRoute("admin_participant");
     }
 
     /**
-     * @Route(path="/{id}/show", name="app_participant_show")
+     * @Route(path="/show/{id}", name="app_participant_show")
      *
      */
     public function showParticipant(Participant $participant){

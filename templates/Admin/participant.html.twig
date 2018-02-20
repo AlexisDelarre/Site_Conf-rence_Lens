@@ -1,26 +1,71 @@
-{#{% extends 'base.html.twig' %}#}
+{% extends 'base.html.twig' %}
 {% block body %}
-    <h1>Liste des participants</h1>
-    <br>
-    <table>
+    <div class="gb-breadcrumb gb-bg white-color">
+        <div class="container">
+            <div class="breadcrumb-info text-center">
+                <div class="page-title">
+                    <h1>
+                        <span class="before-top"></span>
+                        <span>Participant Management</span>
+                        <span class="before-bottom"></span>
+                    </h1>
+                </div>
+                <ol class="breadcrumb">
+                    <li><a href="{{ path('app_homepage_index') }}">Home</a></li>
+                    <li><a href="{{ path('admin') }}">Board Administrator</a></li>
+                    <li class="active">Participant Management</li>
+                </ol>
+            </div>
+        </div><!-- /.container -->
+    </div><!-- /.gb-breadcrumb -->
+    <div class="title-section">
+        <h1 class="color-red">
+            <span class="before-top"></span>
+            <span>Participants</span>
+            <span class="before-bottom"></span>
+        </h1>
+    </div>
+<div class="gb-speakers gb-section">
+    <div class="container">
+    <table class="table">
+        <thead>
         <tr>
-            <td><h4>Name</h4></td>
-            <td><h4>Email</h4></td>
-            <td><h4>Speaker</h4></td>
-            <td><h4>Institution</h4></td>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Organization</th>
+            <th>Country</th>
+            <th>Speaker</th>
         </tr>
+
+        </thead>
+        <tbody>
         {% for participant in participants %}
             <tr>
                 <td>{{ participant.name }}</td>
-                <td>{{ participant.email}}</td>
-                <td>{{ participant.speaker}}</td>
-                <td>{{ participant.institution}}</td>
-                <td><a href={{ path('app_participant_edit', {'id': participant.id }) }}><button>editer</button></a></td>
-                <td><a href={{ path('admin_participant_delete', {'id': participant.id }) }}><button>supprimer</button></a></td>
-                <td><a href={{ path('app_participant_show', {'id': participant.id }) }}><button>voir</button></a></td>
+                <td>{{ participant.email }}</td>
+                <td>{{ participant.institution }}</td>
+                <td>{{ participant.nationality }}</td>
+                {% if participant.speaker == 1 %}
+                    <td>Speaker</td>
+                {% endif %}
+                {% if participant.speaker == 0 %}
+                    <td>No Speaker</td>
+                {% endif %}
+                <td><a href={{ path('app_participant_edit', {'id': participant.id }) }}><button>Edit</button></a></td>
+                <td><a href={{ path('admin_participant_delete', {'id': participant.id }) }}><button>Delete</button></a></td>
             </tr>
 
         {% endfor %}
+
+        </tbody>
     </table>
-    <br>
+    </div><!-- /.container -->
+</div>
+
+
+
+
+
 {% endblock body %}
+
+

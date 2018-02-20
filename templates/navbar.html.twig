@@ -17,6 +17,12 @@
                     <li><a href="{{ path('app_conference_index') }}">Schedule</a></li>
                     <li><a href="{{ path('app_participant_new') }}">Register</a></li>
                     <li><a href="{{ path('app_about_show') }}" >How to come ?</a></li>
+                    <li>
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <a href="{{ path('admin') }}">Board Administrator</a>
+                            {% endif %}
+
+                    </li>
                 </ul>
             </div>
         </div><!-- /.container -->

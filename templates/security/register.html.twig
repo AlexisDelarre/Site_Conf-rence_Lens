@@ -1,6 +1,24 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-
-        {{ form(form) }}
+        <div class="gb-breadcrumb gb-bg white-color">
+                <div class="container">
+                        <div class="breadcrumb-info text-center">
+                                <div class="page-title">
+                                        <h1>
+                                                <span class="before-top"></span>
+                                                <span>I wish to attend</span>
+                                                <span class="before-bottom"></span>
+                                        </h1>
+                                </div>
+                                <ol class="breadcrumb">
+                                        <li><a href="{{ path('app_homepage_index') }}">Home</a></li>
+                                        <li class="active">Register</li>
+                                </ol>
+                        </div>
+                </div><!-- /.container -->
+        </div><!-- /.gb-breadcrumb -->
+    {{ form_start(form) }}
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
 {% endblock %}

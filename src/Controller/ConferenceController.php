@@ -71,7 +71,7 @@ class ConferenceController extends Controller
     }
 
     /**
-     * @Route(path="/{id}/edit", name="app_conference_edit")
+     * @Route(path="/edit/{id}", name="app_conference_edit")
      *
      */
     public function editConference(Request $request, Conference $conference, AuthorizationCheckerInterface $authorizationChecker)
@@ -98,7 +98,7 @@ class ConferenceController extends Controller
     }
 
     /**
-     * @Route(path="/{id}/delete", name="app_conference_delete")
+     * @Route(path="/delete/{id}", name="app_conference_delete")
      *
      */
     public function deleteConference(Conference $conference, AuthorizationCheckerInterface $authorizationChecker)

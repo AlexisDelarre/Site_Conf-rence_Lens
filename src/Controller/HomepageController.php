@@ -78,7 +78,7 @@ class HomepageController extends Controller
         if($form->isSubmitted() && $form->isValid()){
 
             $event = $this->get(HomepageEvent::class);
-            $event->getHomepage($homepage);
+            $event->setHomepage($homepage);
             $dispatcher = $this->get("event_dispatcher");
             $dispatcher->dispatch(AppEvent::HOMEPAGE_EDIT, $event);
 

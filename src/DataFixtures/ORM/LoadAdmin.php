@@ -21,7 +21,7 @@ class LoadAdmin extends Fixture
         $admin->setName("adminlml");
         $admin->setEmail("martin.saralegui@sfr.fr");
         $admin->setAdmin(true);
-        $admin->setPassword("@dm13!n37?1N");
+        $admin->setPassword("azerty");
 
         $manager->persist($admin);
         $manager->flush();

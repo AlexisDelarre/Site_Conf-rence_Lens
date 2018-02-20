@@ -1,6 +1,39 @@
-{#{% extends 'base.html.twig' %}#}
+{% extends 'base.html.twig' %}
 {% block body %}
-            <li><a href={{ path('admin_participant')}}>Gestion des participants</a></li>
-            <li><a href={{ path('admin_conference')}}>Gestion des conferences</a></li>
-            <li><a href={{ path('admin_homepage')}}>Gestion Homepage</a></li>
+    <div class="gb-breadcrumb gb-bg white-color">
+        <div class="container">
+            <div class="breadcrumb-info text-center">
+                <div class="page-title">
+                    <h1>
+                        <span class="before-top"></span>
+                        <span>Board Administrator</span>
+                        <span class="before-bottom"></span>
+                    </h1>
+                </div>
+                <ol class="breadcrumb">
+                    <li><a href="{{ path('app_homepage_index') }}">Home</a></li>
+                    <li class="active">Board_Administrator</li>
+                </ol>
+            </div>
+        </div><!-- /.container -->
+    </div><!-- /.gb-breadcrumb -->
+
+        <div class="speaker">
+            <div class="breadcrumb-info text-center">
+                <div>
+                    <h3> <li><a href={{ path('admin_participant')}}>Gestion des participants</a></li></h3>
+                </div>
+                <div>
+                    <h3><li><a href={{ path('admin_conference')}}>Gestion des conferences</a></li></h3>
+                </div>
+                <div>
+                    <h3><li><a href={{ path('admin_homepage')}}>Gestion Homepage</a></li></h3>
+                </div>
+
+
+            </div>
+
+    </div>
+
+
 {% endblock body %}

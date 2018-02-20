@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
 class AdminController extends AbstractController
 {
     /**
-     * @Route("/admin", name="admin")
+     * @Route("/panel_admin", name="admin")
      */
     public function index()
     {
@@ -88,4 +88,5 @@ class AdminController extends AbstractController
 
         return $this->redirectToRoute('admin_conference');
     }
+
 }

@@ -40,3 +40,15 @@ security:
                 path:   /logout
                 target: /
                 invalidate_session: true
+
+    access_control:
+        - { path: ^/conference/new, roles:  ROLE_ADMIN }
+        - { path: ^/panel_admin, roles:  ROLE_ADMIN }
+        - { path: ^/admin/, roles:  ROLE_ADMIN }
+        - { path: ^/conference/edit, roles:  ROLE_ADMIN }
+        - { path: ^/conference/delete, roles:  ROLE_ADMIN }
+        - { path: ^/participant/delete, roles:  ROLE_ADMIN }
+        - { path: ^/participant/edit, roles:  ROLE_ADMIN }
+        - { path: ^/participant/show, roles:  ROLE_ADMIN }
+        - { path: ^/homepage/edit, roles:  ROLE_ADMIN }
+        - { path: ^/homepage/new, roles:  ROLE_ADMIN }
