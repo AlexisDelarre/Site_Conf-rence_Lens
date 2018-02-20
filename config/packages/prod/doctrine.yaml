@@ -29,3 +29,6 @@ framework:
                 adapter: cache.app
             doctrine.system_cache_pool:
                 adapter: cache.system
+
+twig:
+    exception_controller: App\Controller\ExceptionController::showException
