@@ -35,6 +35,7 @@
             <th>Organization</th>
             <th>Country</th>
             <th>Speaker</th>
+            <th>Valid ?</th>
         </tr>
 
         </thead>
@@ -50,6 +51,12 @@
                 {% endif %}
                 {% if participant.speaker == 0 %}
                     <td>No Speaker</td>
+                {% endif %}
+                {% if participant.enable == 1 %}
+                <td>Valid </td>
+                {% endif %}
+                {% if participant.enable == 0 %}
+                    <td>Invalid</td>
                 {% endif %}
                 <td><a href={{ path('app_participant_edit', {'id': participant.id }) }}><button>Edit</button></a></td>
                 <td><a href={{ path('admin_participant_delete', {'id': participant.id }) }}><button>Delete</button></a></td>

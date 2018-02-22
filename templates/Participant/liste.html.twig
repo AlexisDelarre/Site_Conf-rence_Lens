@@ -33,56 +33,60 @@
 
             <div class="row">
                 {% for participant in participant %}
-                    {% if participant.speaker == 1 %}
-                <div class="col-sm-6 col-md-3">
+                    {% if participant.enable == 1 %}
+                        {% if participant.speaker == 1%}
+                    <div class="col-sm-6 col-md-3">
 
-                    <div class="speaker">
-                        <div class="speaker-image">
-                            <img src="images/speaker/speaker.png" alt="Image" class="img-responsive">
-                        </div>
-                        <div class="speaker-title">
-                        </div>
+                        <div class="speaker">
+                            <div class="speaker-image">
+                                <img src="images/speaker/speaker.png" alt="Image" class="img-responsive">
+                            </div>
+                            <div class="speaker-title">
+                            </div>
 
-                            <h2>{{ participant.name }}</h2>
-                            <span>{{ participant.institution }}</span>
+                                <h2>{{ participant.name }}</h2>
+                                <span>{{ participant.institution }}</span>
+                            </div>
                         </div>
-                    </div>
-                {% endif %}
+                        {% endif %}
+                    {% endif %}
                 {% endfor %}
-            </div><!-- /.row -->
-            <div class="title-section">
-                <h1 class="color-red">
-                    <span class="before-top"></span>
-                    <span>Participants</span>
-                    <span class="before-bottom"></span>
-                </h1>
-            </div>
+                </div><!-- /.row -->
+                <div class="title-section">
+                    <h1 class="color-red">
+                        <span class="before-top"></span>
+                        <span>Participants</span>
+                        <span class="before-bottom"></span>
+                    </h1>
+                </div>
 
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Organization</th>
-                    <th>Country</th>
-                </tr>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Organization</th>
+                        <th>Country</th>
+                    </tr>
 
-                </thead>
-                <tbody>
-                {% for participant in participant %}
-                {% if participant.speaker == 0%}
-                <tr>
-                    <td>{{ participant.name }}</td>
-                    <td>{{ participant.institution }}</td>
-                    <td>{{ participant.nationality }}</td>
-                </tr>
-                {% endif %}
-                {% endfor %}
+                    </thead>
+                    <tbody>
+                    {% for participant in participant %}
+                        {% if participant.enable == 1 %}
+                            {% if participant.speaker == 0%}
+                    <tr>
+                        <td>{{ participant.name }}</td>
+                        <td>{{ participant.institution }}</td>
+                        <td>{{ participant.nationality }}</td>
+                    </tr>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
 
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
 
-        </div><!-- /.container -->
-    </div><!-- /.gb-section -->
+            </div><!-- /.container -->
+        </div><!-- /.gb-section -->
 
 
 {% endblock %}

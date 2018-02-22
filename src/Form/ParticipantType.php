@@ -41,6 +41,7 @@ class ParticipantType extends AbstractType
             ->add("institution",TextType::class)
             ->add("nationality",TextType::class)
 
+
         ;
     }
     public function configureOptions(OptionsResolver $resolver)
@@ -50,15 +51,5 @@ class ParticipantType extends AbstractType
         ]);
     }
 
-    /*public function onPreSetData(FormEvent $formEvent)
-    {
-        $form = $formEvent->getForm();
-        $participant = $formEvent->getData();
 
-        if($participant->getId() === null){
-            $form->add("save", SubmitType::class, ["label" => "Create"]);
-        } else{
-            $form->add("save", SubmitType::class, ["label" => "Edit"]);
-        }
-    }*/
 }

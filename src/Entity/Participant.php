@@ -187,7 +187,7 @@ class Participant
     /**
      * @param bool $enable
      */
-    public function setEnable( $enable)
+    public function setEnable($enable)
     {
         $this->enable = $enable;
     }

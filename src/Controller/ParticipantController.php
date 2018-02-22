@@ -7,7 +7,9 @@ use App\AppEvent;
 use App\Entity\Participant;
 use App\Event\ParticipantEvent;
 
+use App\Form\ParticipantEditType;
 use App\Form\ParticipantType;
+use Swift_Mailer;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
@@ -48,12 +50,9 @@ class ParticipantController extends Controller
      *     name="app_participant_new"
      * )
      */
-    public function newParticipant(Request $request, AuthorizationCheckerInterface $authorizationChecker)
+    public function newParticipant(Request $request, Swift_Mailer $mailer)
     {
-        /*if(false === $authorizationChecker->isGranted(AppAccess::ParticipantAdd)){
-            $this->addFlash('error', 'access deny !');
-            return $this->redirectToRoute("app_homepage_index");
-        }*/
+
         $participant = $this->get(Participant::class);
         $form = $this->createForm(ParticipantType::class, $participant);
         $form->handleRequest($request);
@@ -63,7 +62,17 @@ class ParticipantController extends Controller
             $event->getParticipant($participant);
             $dispatcher = $this->get("event_dispatcher");
             $dispatcher->dispatch(AppEvent::PARTICIPANT_ADD, $event);
+
+            $message = (new \Swift_Message('Hello Email'))
+                ->setFrom('sitelmlartois@gmail.com')
+                ->setTo('sitelmlartois@gmail.com')
+                ->setBody("Une nouvelle personne s'est inscrit sur le site: " . $participant->getName() . $this->renderView(
+
+                        'email/email.html.twig'));
+            $mailer->send($message);
+
             return $this->redirectToRoute("app_homepage_index");
+
         }
         return $this->render("Participant/new.html.twig", ["form" => $form->createView()]);
     }
@@ -72,13 +81,10 @@ class ParticipantController extends Controller
      * @Route(path="/edit/{id}", name="app_participant_edit")
      *
      */
-    public function editParticipant(Request $request, Participant $participant, AuthorizationCheckerInterface $authorizationChecker)
+    public function editParticipant(Request $request, Participant $participant)
     {
-        /* if(false === $authorizationChecker->isGranted(AppAccess::ParticipantEdit, $participant)){
-             $this->addFlash('error', 'access deny !');
-             return $this->redirectToRoute("app_homepage_index");
-         }*/
-        $form = $this->createForm(ParticipantType::class, $participant);
+
+        $form = $this->createForm(ParticipantEditType::class, $participant);
 
         $form->handleRequest($request);
 
@@ -99,12 +105,9 @@ class ParticipantController extends Controller
      * @Route(path="/delete/{id}", name="app_participant_delete")
      *
      */
-    public function deleteParticipant(Participant $participant, AuthorizationCheckerInterface $authorizationChecker)
+    public function deleteParticipant(Participant $participant)
     {
-        /*if(false === $authorizationChecker->isGranted(AppAccess::ParticipantDelete, $participant)){
-            $this->addFlash('error', 'access deny !');
-            return $this->redirectToRoute("app_homepage_index");
-        }*/
+
         $event = $this->get(ParticipantEvent::class);
         $event->setParticipant($participant);
         $dispatcher = $this->get("event_dispatcher");
